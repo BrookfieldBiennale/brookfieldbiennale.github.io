@@ -34,43 +34,6 @@
     max-width: 420px;
   }
 
-  /* ---------- scattered photos ---------- */
-
-  .snap {
-    position: absolute;
-    width: 118px;
-    height: 118px;
-    background: var(--paper);
-    padding: 6px 6px 20px;
-    box-shadow: 3px 4px 8px rgba(0,0,0,0.22);
-    z-index: 2;
-  }
-
-  .snap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .snap.s1 {
-    top: -46px;
-    left: -34px;
-    transform: rotate(-9deg);
-  }
-
-  .snap.s2 {
-    top: -30px;
-    right: -40px;
-    transform: rotate(7deg);
-  }
-
-  .snap.s3 {
-    bottom: -54px;
-    left: -20px;
-    transform: rotate(5deg);
-  }
-
   /* ---------- video card ---------- */
 
   .card {
@@ -123,22 +86,45 @@
     opacity: 0.45;
   }
 
+  /* ---------- photo row ---------- */
+
+  .photo-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 34px;
+  }
+
+  .snap {
+    width: 96px;
+    height: 96px;
+    background: var(--paper);
+    padding: 5px 5px 16px;
+    box-shadow: 3px 4px 8px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+  }
+
+  .snap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .snap.r1 { transform: rotate(-6deg); }
+  .snap.r2 { transform: rotate(3deg); }
+  .snap.r3 { transform: rotate(-2deg); }
+
   @media (max-width: 480px) {
     .stage { max-width: 320px; }
-    .snap { width: 92px; height: 92px; }
-    .snap.s1 { top: -34px; left: -22px; }
-    .snap.s2 { top: -22px; right: -26px; }
-    .snap.s3 { bottom: -40px; left: -14px; }
+    .photo-row { gap: 10px; }
+    .snap { width: 82px; height: 82px; }
   }
 </style>
 </head>
 <body>
 
   <div class="stage">
-    <div class="snap s1"><img src="assets/BB3.jpg" alt="Potato field rows, PEI"></div>
-    <div class="snap s2"><img src="assets/BB1.jpg" alt="Painted flower mural"></div>
-    <div class="snap s3"><img src="assets/BB2.jpg" alt="Dusty truck window"></div>
-
     <div class="card">
       <div class="video-frame">
         <video autoplay muted loop playsinline>
@@ -152,6 +138,12 @@
     </div>
 
     <p class="more">more soon...</p>
+
+    <div class="photo-row">
+      <div class="snap r1"><img src="assets/BB3.jpg" alt="Potato field rows, PEI"></div>
+      <div class="snap r2"><img src="assets/BB1.jpg" alt="Painted flower mural"></div>
+      <div class="snap r3"><img src="assets/BB2.jpg" alt="Dusty truck window"></div>
+    </div>
   </div>
 
 </body>
